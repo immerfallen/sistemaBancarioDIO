@@ -4,9 +4,7 @@ using System.Collections.Generic;
 namespace DIO_Bank
 {
     class Program
-    {
-
-        
+    {        
         static List<Conta> listaContas = new List<Conta>();
         static void Main(string[] args)
         {
@@ -21,13 +19,13 @@ namespace DIO_Bank
                    InserirConta();
                     break;
                    case "3":
-                    //Transferir();
+                    Transferir();
                     break;
                    case "4":
                     Sacar();
                     break;
                    case "5":
-                    //Depositar();
+                    Depositar();
                     break;
                    case "C":
                    Console.Clear();
@@ -82,6 +80,30 @@ namespace DIO_Bank
             double valorSaque = double.Parse(Console.ReadLine());
 
             listaContas[indiceConta].Sacar(valorSaque);
+        }
+
+        public static void Depositar(){
+            Console.Write("Digite o número da conta: ");
+            int indiceConta = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o valor a ser depositado: ");
+            double valorDeposito = double.Parse(Console.ReadLine());
+
+            listaContas[indiceConta].Depositar(valorDeposito);
+        }
+
+        public static void Transferir(){
+            Console.Write("Digite o número da conta de origem: ");
+            int indiceContaOrigem = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o número da conta de destino: ");
+            int indiceContaDestino = int.Parse(Console.ReadLine());
+
+
+            Console.Write("Digite o valor a ser transferido: ");
+            double valorTransferencia = double.Parse(Console.ReadLine());
+
+            listaContas[indiceContaOrigem].Transferir(valorTransferencia, listaContas[indiceContaDestino]);
         }
 
         private static string ObterOpcaoUsuario(){

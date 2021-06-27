@@ -40,7 +40,7 @@ namespace DIO_Bank
 
         }
 
-        public void Tranferir(double valorTranferencia, Conta contaDestino){
+        public void Transferir(double valorTranferencia, Conta contaDestino){
             if(this.Sacar(valorTranferencia)){
                 contaDestino.Depositar(valorTranferencia);
             }
@@ -51,8 +51,8 @@ namespace DIO_Bank
             string retorno = "";
             retorno += "Tipo de conta " + this.TipoConta + " | ";
             retorno += "Nome: " + this.Nome + " | ";
-            retorno += "Saldo: " + this.Saldo + " | ";
-            retorno += "Credito: " + this.Credito;
+            retorno += "Saldo: R$ " + this.Saldo + " | ";
+            retorno += "Credito: R$ " + this.Credito;
 
             return retorno;
         }
